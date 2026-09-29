@@ -1073,24 +1073,106 @@ html, body {
   }
 }
 
-/* Responsive */
+/* ===== Samsung Galaxy A35 & Mobile Optimization ===== */
+*, *::before, *::after {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+body {
+  overscroll-behavior-y: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* GPU Acceleration for 120Hz AMOLED Display */
+.petal, .burst-heart, .ambient-orb, .letter-card, .neon-letter {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+/* Responsive & Mobile Safe Areas */
+.letter-screen {
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-top: env(safe-area-inset-top);
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
 @media (max-width: 600px) {
   .letter-card {
-    border-radius: 16px;
-    margin: var(--space-md);
+    border-radius: 20px;
+    margin: 12px;
+    padding: 1.4rem 1.1rem;
+    max-width: 94vw;
+    max-height: 86vh;
+    max-height: 86dvh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .letter-heading {
+    font-size: clamp(2rem, 8.5vw, 2.8rem);
+  }
+
+  .letter-paragraph {
+    font-size: clamp(0.98rem, 4vw, 1.1rem);
+    line-height: 1.8;
+    margin-bottom: 1.15rem;
+  }
+
+  .question-title {
+    font-size: clamp(1.35rem, 5.2vw, 1.85rem);
+    min-height: 60px;
+  }
+
+  .question-buttons {
+    gap: 12px;
+    margin-top: 1.25rem;
+  }
+
+  .yes-btn, .no-btn, .next-btn, .love-burst-btn {
+    min-height: 48px;
+    padding: 0.75rem 1.6rem;
+    font-size: 1rem;
+  }
+
+  .neon-message-wrapper {
+    gap: 0.35rem 0.55rem;
+    margin: 0.8rem 0;
+  }
+
+  .neon-letter {
+    font-size: clamp(1.4rem, 6vw, 2.4rem);
+  }
+
+  .couple-img-wrapper {
+    max-width: 88vw;
+    max-height: 320px;
+  }
+
+  .couple-img {
+    max-height: 320px;
+  }
+
+  .music-control {
+    bottom: calc(16px + env(safe-area-inset-bottom));
+    right: 16px;
+    width: 48px;
+    height: 48px;
   }
 
   .neon-text {
-    font-size: clamp(2.5rem, 12vw, 4rem);
+    font-size: clamp(2.2rem, 11vw, 3.5rem);
     padding: 0 10px;
   }
 
   .neon-emoji {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
 
   .click-icon {
-    font-size: 3rem;
+    font-size: 2.8rem;
   }
 }
 
